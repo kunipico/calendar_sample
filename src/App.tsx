@@ -1,26 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ScheduleCalendar } from "./component";
 
-function App() {
+export const App = () => {
+  const date = new Date();
+  const schedules = [
+    { name: "Schedule1", year: date.getFullYear(), month: date.getMonth() + 1, day: 20, color: "#ff0049" },
+    { name: "Schedule2", year: date.getFullYear(), month: date.getMonth() + 1, day: 25, color: "#0ce7ff" },
+    { name: "Schedule3", year: date.getFullYear(), month: date.getMonth() + 1, day: 25, color: "#68df00" },
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-[100vw] p-0 sm:p-5 min-h-[100vh] flex justify-center items-center">
+      <ScheduleCalendar schedules={schedules} className="w-[90%] h-[95vh] sm:w-[380px] sm:h-[380px]" startOnMonday />
     </div>
   );
-}
-
-export default App;
+};
